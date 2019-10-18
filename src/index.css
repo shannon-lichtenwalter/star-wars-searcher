@@ -31,8 +31,6 @@ h2 {
 
 main {
   width: 70%;
-  /* min-height: 50%; */
-  margin-top:200px;
   height: auto;
   padding: 10px;
   border: 10px double yellow;
