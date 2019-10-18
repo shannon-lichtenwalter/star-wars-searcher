@@ -31,7 +31,10 @@ h2 {
 
 main {
   width: 70%;
+  min-height: 500px;
   height: auto;
+  margin-top:50px;
+  margin-bottom: 50px;
   padding: 10px;
   border: 10px double yellow;
   border-radius:10px;
@@ -41,7 +44,7 @@ main {
 }
 
 #root {
-  height:100vh;
+  /* height:100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
