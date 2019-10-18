@@ -47,3 +47,7 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+.errorBoundaryMessage {
+  color:red;
+}

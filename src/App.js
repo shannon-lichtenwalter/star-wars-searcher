@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchInput from './SearchInput/SearchInput';
-import ResultList from './ResultList/ResultList'
+import ResultList from './ResultList/ResultList';
+import ErrorBoundary from './ErrorBoundary';
 
 class App extends React.Component {
   state = {
@@ -43,8 +44,13 @@ class App extends React.Component {
         <h1>Star Wars Searcher</h1>
         <h2>Use the search below to find your favorite characters</h2>
         {this.state.error && <h2>Sorry, an error has occurred: {this.state.error}</h2>}
-        <SearchInput handleSearchSubmit= {this.handleSearchSubmit}/>
-        {this.state.searchMade && <ResultList results={this.state.results}/>}
+        <ErrorBoundary>
+          <SearchInput handleSearchSubmit= {this.handleSearchSubmit}/>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          {this.state.searchMade && <ResultList results={this.state.results}/>}
+        </ErrorBoundary>
+        
       </main>
     );
   }
