@@ -12,13 +12,13 @@ label {
 }
 
 input {
-  min-width: 200px;
+  min-width: 180px;
   margin-bottom: 5px;
   border-radius: 3px;
 }
 
 select {
-  min-width: 200px;
+  min-width: 180px;
   margin-bottom: 5px;
   background-color: white;
 }

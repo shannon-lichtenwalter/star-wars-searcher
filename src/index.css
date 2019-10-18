@@ -9,7 +9,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('https://cdn.pixabay.com/photo/2016/01/27/15/25/space-1164579__340.png');
-  background-repeat: no-repeat;
   background-size:cover;
   background-position: center;
   color: white;
@@ -32,7 +31,8 @@ h2 {
 
 main {
   width: 70%;
-  min-height: 50%;
+  /* min-height: 50%; */
+  margin-top:200px;
   height: auto;
   padding: 10px;
   border: 10px double yellow;
