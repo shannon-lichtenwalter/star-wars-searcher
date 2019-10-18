@@ -12,11 +12,12 @@ class App extends React.Component {
     fetchInProgress:false
   }
 
-  handleSearchSubmit = (name) => {
+
+  handleSearchSubmit = (type, search) => {
     this.setState({
       fetchInProgress:true,
     })
-    fetch(`https://swapi.co/api/people?search=${name}`)
+    fetch(`https://swapi.co/api/${type}?search=${search}`)
     .then(res=> {
       this.setState({
         fetchInProgress:false,
@@ -36,7 +37,7 @@ class App extends React.Component {
       this.setState({
         searchMade:true,
         results: data.results.map(result => {
-        return {name: result.name}
+        return {name: result.name ? result.name : result.title}
         })
       })}
     })
@@ -52,7 +53,8 @@ class App extends React.Component {
     return (
       <main className='App'>
         <h1>Star Wars Searcher</h1>
-        <h2>Use the search below to find your favorite characters</h2>
+        <h2>Power! Unlimited power!</h2>
+        <img src="https://i.imgur.com/J9qafQC.png" alt="yoda" />
         {this.state.error && <h2>Sorry, an error has occurred: {this.state.error}</h2>}
         <ErrorBoundary>
           <SearchInput handleSearchSubmit= {this.handleSearchSubmit}/>

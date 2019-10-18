@@ -5,3 +5,20 @@
 form {
   text-align: center;
 }
+
+label {
+  display:block;
+  margin-bottom: 5px;
+}
+
+input {
+  min-width: 200px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+select {
+  min-width: 200px;
+  margin-bottom: 5px;
+  background-color: white;
+}

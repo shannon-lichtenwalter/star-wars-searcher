@@ -6,12 +6,19 @@ class SearchInput extends React.Component {
   state = {
     nameSearch: null,
     touched: false,
+    typeSearch:'people'
   }
 
 updateNameSearch = (name) => {
   this.setState({
     nameSearch: name,
     touched: true,
+  })
+}
+
+updateTypeSearch = (value) => {
+  this.setState ({
+    typeSearch: value
   })
 }
 
@@ -23,7 +30,7 @@ validateName(){
 
 handleSubmit = (event) => {
   event.preventDefault();
-  this.props.handleSearchSubmit(this.state.nameSearch);
+  this.props.handleSearchSubmit(this.state.typeSearch, this.state.nameSearch);
   event.target.searchName.value = ''
   this.setState({
     touched: false,
@@ -33,7 +40,16 @@ handleSubmit = (event) => {
   render() {
     return (
       <form onSubmit={(event) => this.handleSubmit(event)}>
-        <label htmlFor='searchName'>Search By Name:</label>
+        <label htmlFor='typeSearch'>You searching for what are?</label>
+        <select id='typeSearch' onChange={(e)=> this.updateTypeSearch(e.target.value)}>
+          <option value='people'>Character</option>
+          <option value="films">Films</option>
+          <option value="planets">Planets</option>
+          <option value="species">Species</option>
+          <option value="starships">Starships</option>
+          <option value="vehicles">Vehicles</option>
+        </select>
+        <label htmlFor='searchName'>Hrrmmm. It called what is?</label>
         <input 
           id='searchName' 
           type='text' 
