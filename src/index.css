@@ -9,8 +9,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('https://cdn.pixabay.com/photo/2016/01/27/15/25/space-1164579__340.png');
+  background-repeat:no-repeat;
   background-size:cover;
-  background-position: center;
+  background-attachment: fixed;
+  background-position: center center;
   color: white;
 }
 
