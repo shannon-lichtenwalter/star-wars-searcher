@@ -23,7 +23,6 @@ validateName(){
 
 handleSubmit = (event) => {
   event.preventDefault();
-  console.log('here!');
   this.props.handleSearchSubmit(this.state.nameSearch);
   event.target.searchName.value = ''
   this.setState({

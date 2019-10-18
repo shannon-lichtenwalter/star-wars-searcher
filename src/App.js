@@ -1,9 +1,11 @@
 import React from 'react';
-import SearchInput from './SearchInput/SearchInput'
+import SearchInput from './SearchInput/SearchInput';
+import ResultList from './ResultList/ResultList'
 
 class App extends React.Component {
   state = {
-    results: [],
+    results: null,
+    searchMade:false,
     error: null
   }
 
@@ -14,11 +16,18 @@ class App extends React.Component {
         throw new Error(res.json())
       } return res.json()
     }).then(data => {
+      if(data.count === 0){
+        this.setState({
+          results:null,
+          searchMade:true,
+        })
+      } else {
       this.setState({
+        searchMade:true,
         results: data.results.map(result => {
         return {name: result.name}
         })
-      })
+      })}
     })
     .catch(err => {
       this.setState({
@@ -31,8 +40,11 @@ class App extends React.Component {
   render() {
     return (
       <main className='App'>
-        <div>Star Wars Project</div>
+        <h1>Star Wars Searcher</h1>
+        <h2>Use the search below to find your favorite characters</h2>
+        {this.state.error && <h2>Sorry, an error has occurred: {this.state.error}</h2>}
         <SearchInput handleSearchSubmit= {this.handleSearchSubmit}/>
+        {this.state.searchMade && <ResultList results={this.state.results}/>}
       </main>
     );
   }
