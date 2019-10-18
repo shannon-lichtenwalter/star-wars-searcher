@@ -2,21 +2,31 @@ import React from 'react';
 import SearchInput from './SearchInput/SearchInput';
 import ResultList from './ResultList/ResultList';
 import ErrorBoundary from './ErrorBoundary';
+import Spinner from './Spinner/Spinner';
 
 class App extends React.Component {
   state = {
     results: null,
     searchMade:false,
-    error: null
+    error: null,
+    fetchInProgress:false
   }
 
   handleSearchSubmit = (name) => {
+    this.setState({
+      fetchInProgress:true,
+    })
     fetch(`https://swapi.co/api/people?search=${name}`)
     .then(res=> {
-      if(!res.ok){
-        throw new Error(res.json())
-      } return res.json()
-    }).then(data => {
+      this.setState({
+        fetchInProgress:false,
+      });
+      if(!res.ok){ 
+        throw new Error(res.json());
+      }
+        return res.json()
+    })
+    .then(data => {
       if(data.count === 0){
         this.setState({
           results:null,
@@ -47,6 +57,7 @@ class App extends React.Component {
         <ErrorBoundary>
           <SearchInput handleSearchSubmit= {this.handleSearchSubmit}/>
         </ErrorBoundary>
+        {this.state.fetchInProgress && <Spinner />}
         <ErrorBoundary>
           {this.state.searchMade && <ResultList results={this.state.results}/>}
         </ErrorBoundary>
