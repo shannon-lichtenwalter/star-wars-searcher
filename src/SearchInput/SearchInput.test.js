@@ -8,11 +8,6 @@ import SearchInput from './SearchInput';
 
 
 describe('SearchInput Component', () => {
-  
-//   const testFunction = () => {
-//   console.log('hi');
-// }
-
   it('renders SearchInput without crashing', () =>  {
     const div= document.createElement('div');
     ReactDOM.render(<SearchInput />, div);

@@ -2,7 +2,7 @@
 ### Created By: Shannon Lichtenwalter
 
 #### See it live:
-https://star-wars-app.shannonlichtenwalter.now.sh/
+https://shannon-star-wars-app.now.sh
 
 #### Summary
 This simple search application allows the user to search the Star Wars API for characters, starships, movies, and other categories. This simple search is a one page application that renders the results of partial or full search terms in a list format.
